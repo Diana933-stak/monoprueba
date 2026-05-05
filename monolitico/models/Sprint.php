@@ -1,15 +1,8 @@
 <?php
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/BaseModel.php';
 
-class Sprint
+class Sprint extends BaseModel
 {
-    private PDO $db;
-
-    public function __construct()
-    {
-        $this->db = Database::connect();
-    }
-
     public function all(): array
     {
         $stmt = $this->db->query('SELECT * FROM sprints ORDER BY fecha_inicio DESC');

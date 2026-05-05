@@ -1,5 +1,5 @@
 <?php
-class BaseController
+abstract class AbstractController
 {
     protected function render(string $view, array $data = []): void
     {
@@ -14,4 +14,6 @@ class BaseController
         header('Location: index.php?route=' . $route);
         exit;
     }
+
+    abstract public function index(): void;
 }

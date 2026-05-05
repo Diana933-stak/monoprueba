@@ -1,15 +1,8 @@
 <?php
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/BaseModel.php';
 
-class Historia
+class Historia extends BaseModel
 {
-    private PDO $db;
-
-    public function __construct()
-    {
-        $this->db = Database::connect();
-    }
-
     public function allWithSprint(): array
     {
         $sql = 'SELECT h.*, s.nombre AS sprint_nombre FROM historias h JOIN sprints s ON h.sprint_id = s.id ORDER BY h.created_at DESC';
